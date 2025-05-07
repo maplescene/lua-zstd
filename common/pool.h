@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Yann Collet, Facebook, Inc.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under both the BSD-style license (found in the
@@ -10,10 +10,6 @@
 
 #ifndef POOL_H
 #define POOL_H
-
-#if defined (__cplusplus)
-extern "C" {
-#endif
 
 
 #include "zstd_deps.h"
@@ -47,7 +43,7 @@ void POOL_joinJobs(POOL_ctx* ctx);
 /*! POOL_resize() :
  *  Expands or shrinks pool's number of threads.
  *  This is more efficient than releasing + creating a new context,
- *  since it tries to preserve and re-use existing threads.
+ *  since it tries to preserve and reuse existing threads.
  * `numThreads` must be at least 1.
  * @return : 0 when resize was successful,
  *           !0 (typically 1) if there is an error.
@@ -81,10 +77,5 @@ void POOL_add(POOL_ctx* ctx, POOL_function function, void* opaque);
  * @return : 1 if successful, 0 if not.
  */
 int POOL_tryAdd(POOL_ctx* ctx, POOL_function function, void* opaque);
-
-
-#if defined (__cplusplus)
-}
-#endif
 
 #endif
